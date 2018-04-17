@@ -17,6 +17,10 @@ package it.chrand.miwok
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.content.Intent
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,5 +29,11 @@ class MainActivity : AppCompatActivity() {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main)
+    }
+
+    fun openNumbersList(view: View)
+    {
+        val i = Intent(this, NumbersActivity::class.java)
+        startActivity(i)
     }
 }
