@@ -36,5 +36,5 @@
     <color name="category_phrases">#16AFCA</color>
 
     <!-- Background color for all words category -->
-    <color name="all_words">#30de19</color>
+    <color name="category_all">#30de19</color>
 </resources>
