@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     fun openNumbersList(view: View)
     {
-        val i = Intent(this, NumbersActivity::class.java)
-        startActivity(i)
+        val intent = Intent(this, NumbersActivity::class.java)
+        startActivity(intent)
     }
 }
