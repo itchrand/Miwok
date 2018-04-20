@@ -2,17 +2,16 @@ package it.chrand.miwok
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
-import java.nio.file.Files.size
 
 
 class NumbersActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_numbers)
+
+        setContentView(R.layout.word_list)
 
         // Create an array of words
         val words = ArrayList<Word>()
