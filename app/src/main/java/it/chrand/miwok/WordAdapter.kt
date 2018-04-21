@@ -7,9 +7,10 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.view.LayoutInflater
 import android.widget.ImageView
+import android.widget.LinearLayout
 
 
-class WordAdapter(val getContext: Context, val list: ArrayList<Word>) :
+class WordAdapter(val getContext: Context, val list: ArrayList<Word>, val backgroundColorId: Int) :
         ArrayAdapter<Word>(getContext, 0, list) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
@@ -17,6 +18,11 @@ class WordAdapter(val getContext: Context, val list: ArrayList<Word>) :
         if (listItemView == null) {
             listItemView = LayoutInflater.from(context).inflate(
                     R.layout.list_item, parent, false)
+
+            val textContainer = listItemView!!.findViewById(R.id.text_container) as LinearLayout
+            // find the color the ressourceId maps to
+            val color = getContext.getColor(backgroundColorId)
+            textContainer.setBackgroundColor(color)
         }
 
         // Get the object located at this position in the list

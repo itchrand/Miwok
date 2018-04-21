@@ -23,7 +23,7 @@ class ColorsActivity : AppCompatActivity() {
         words.add(Word("ṭopiisә","dusty yellow", R.drawable.color_dusty_yellow))
         words.add(Word("chiwiiṭә","mustard yellow", R.drawable.color_mustard_yellow))
 
-        val itemsAdapter = WordAdapter(this, words)
+        val itemsAdapter = WordAdapter(this, words, R.color.category_colors)
 
         val listView = findViewById<View>(R.id.list) as ListView
 

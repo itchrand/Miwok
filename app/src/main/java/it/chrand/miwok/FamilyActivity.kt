@@ -25,7 +25,7 @@ class FamilyActivity : AppCompatActivity() {
         words.add(Word("ama","grandmother", R.drawable.family_grandmother))
         words.add(Word("paapa","grandfather", R.drawable.family_grandfather))
 
-        val itemsAdapter = WordAdapter(this, words)
+        val itemsAdapter = WordAdapter(this, words, R.color.category_family)
 
         val listView = findViewById<View>(R.id.list) as ListView
 

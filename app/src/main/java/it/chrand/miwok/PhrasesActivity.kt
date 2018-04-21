@@ -25,7 +25,7 @@ class PhrasesActivity : AppCompatActivity() {
         words.add(Word("yoowutis","Let’s go."))
         words.add(Word("әnni'nem","Come here."))
 
-        val itemsAdapter = WordAdapter(this, words)
+        val itemsAdapter = WordAdapter(this, words, R.color.category_phrases)
 
         val listView = findViewById<View>(R.id.list) as ListView
 

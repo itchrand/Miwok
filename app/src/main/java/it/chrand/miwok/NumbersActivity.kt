@@ -26,7 +26,7 @@ class NumbersActivity : AppCompatActivity() {
         words.add(Word("wo’e","nine", R.drawable.number_nine))
         words.add(Word("na’aacha","ten", R.drawable.number_ten))
 
-        val itemsAdapter = WordAdapter(this, words)
+        val itemsAdapter = WordAdapter(this, words, R.color.category_numbers)
 
         val listView = findViewById<View>(R.id.list) as ListView
 
