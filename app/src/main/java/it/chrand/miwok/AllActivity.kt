@@ -14,16 +14,16 @@ class AllActivity : AppCompatActivity() {
 
         // Create an array of words
         val words = ArrayList<Word>()
-        words.add(Word("lutti","one"))
-        words.add(Word("otiiko","two"))
-        words.add(Word("tolookosu","three"))
-        words.add(Word("oyyisa","four"))
-        words.add(Word("massokka","five"))
-        words.add(Word("temmokka","six"))
-        words.add(Word("kenekaku","seven"))
-        words.add(Word("kawinta","eight"))
-        words.add(Word("wo’e","nine"))
-        words.add(Word("na’aacha","ten"))
+        words.add(Word("lutti","one", R.drawable.number_one))
+        words.add(Word("otiiko","two", R.drawable.number_two))
+        words.add(Word("tolookosu","three", R.drawable.number_three))
+        words.add(Word("oyyisa","four", R.drawable.number_four))
+        words.add(Word("massokka","five", R.drawable.number_five))
+        words.add(Word("temmokka","six", R.drawable.number_six))
+        words.add(Word("kenekaku","seven", R.drawable.number_seven))
+        words.add(Word("kawinta","eight", R.drawable.number_eight))
+        words.add(Word("wo’e","nine", R.drawable.number_nine))
+        words.add(Word("na’aacha","ten", R.drawable.number_ten))
 
         val itemsAdapter = WordAdapter(this, words)
 

@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.view.LayoutInflater
-
-
+import android.widget.ImageView
 
 
 class WordAdapter(val getContext: Context, val list: ArrayList<Word>) :
-        ArrayAdapter<Word>(getContext,0, list){
+        ArrayAdapter<Word>(getContext, 0, list) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var listItemView = convertView
@@ -29,6 +28,14 @@ class WordAdapter(val getContext: Context, val list: ArrayList<Word>) :
 
         val defaultTextView = listItemView.findViewById(R.id.default_text) as TextView
         defaultTextView.setText(currentItem!!.defaultTranslation)
+
+        val iconImageView = listItemView.findViewById(R.id.image) as ImageView
+        if (currentItem!!.hasImage()) {
+            iconImageView.setImageResource(currentItem!!.imageRessourceId)
+            iconImageView.setVisibility(View.VISIBLE)     // because of reuse
+        }
+        else
+            iconImageView.setVisibility(View.GONE)
 
         // Return the whole list item layout (containing 2 TextViews)
         // so that it can be shown in the ListView
