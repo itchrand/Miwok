@@ -17,6 +17,9 @@ package it.chrand.miwok
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.content.Intent
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,5 +28,40 @@ class MainActivity : AppCompatActivity() {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main)
+
+        // Find the View that shows the numbers category
+        val numbers = findViewById<View>(R.id.numbers) as TextView
+
+        // Set a click listener on that View
+        numbers.setOnClickListener {
+            val numbersIntent = Intent(this@MainActivity, NumbersActivity::class.java)
+            startActivity(numbersIntent)
+        }
+
+        val family = findViewById<View>(R.id.family) as TextView
+        family.setOnClickListener {
+            val familyIntent = Intent(this@MainActivity, FamilyActivity::class.java)
+            startActivity(familyIntent)
+        }
+
+        val colors = findViewById<View>(R.id.colors) as TextView
+        colors.setOnClickListener {
+            val colorsIntent = Intent(this@MainActivity, ColorsActivity::class.java)
+            startActivity(colorsIntent)
+        }
+
+        val phrases = findViewById<View>(R.id.phrases) as TextView
+        phrases.setOnClickListener {
+            val phrasesIntent = Intent(this@MainActivity, PhrasesActivity::class.java)
+            startActivity(phrasesIntent)
+        }
+
+        val all = findViewById<View>(R.id.all) as TextView
+        all.setOnClickListener {
+            val allIntent = Intent(this@MainActivity, AllActivity::class.java)
+            startActivity(allIntent)
+        }
+
     }
+
 }

@@ -27,5 +27,7 @@
 
     <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
     <string name="category_family">Family Members</string>
-    <string name="all_words">Complete Dictionary</string>
+
+    <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
+    <string name="category_all">Complete Dictionary</string>
 </resources>
