@@ -1,6 +1,5 @@
 package it.chrand.miwok
 
-import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
@@ -24,18 +23,18 @@ class WordAdapter(val getContext: Context, val list: ArrayList<Word>) :
         val currentItem = list[position]
 
         val miwokTextView = listItemView!!.findViewById(R.id.miwok_text) as TextView
-        miwokTextView.setText(currentItem!!.miwokTranslation)
+        miwokTextView.setText(currentItem.miwokTranslation)
 
         val defaultTextView = listItemView.findViewById(R.id.default_text) as TextView
-        defaultTextView.setText(currentItem!!.defaultTranslation)
+        defaultTextView.setText(currentItem.defaultTranslation)
 
         val iconImageView = listItemView.findViewById(R.id.image) as ImageView
-        if (currentItem!!.hasImage()) {
-            iconImageView.setImageResource(currentItem!!.imageRessourceId)
-            iconImageView.setVisibility(View.VISIBLE)     // because of reuse
+        if (currentItem.hasImage()) {
+            iconImageView.setImageResource(currentItem.imageRessourceId)
+            iconImageView.visibility = View.VISIBLE     // because of reuse
         }
         else
-            iconImageView.setVisibility(View.GONE)
+            iconImageView.visibility = View.GONE
 
         // Return the whole list item layout (containing 2 TextViews)
         // so that it can be shown in the ListView
