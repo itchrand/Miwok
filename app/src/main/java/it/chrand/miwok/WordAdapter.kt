@@ -1,6 +1,7 @@
 package it.chrand.miwok
 
 import android.content.Context
+import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
@@ -21,7 +22,7 @@ class WordAdapter(val getContext: Context, val list: ArrayList<Word>, val backgr
 
             val textContainer = listItemView!!.findViewById(R.id.text_container) as LinearLayout
             // find the color the ressourceId maps to
-            val color = getContext.getColor(backgroundColorId)
+            val color = ContextCompat.getColor(getContext, backgroundColorId)
             textContainer.setBackgroundColor(color)
         }
 
