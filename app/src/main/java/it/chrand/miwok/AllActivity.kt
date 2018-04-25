@@ -14,7 +14,7 @@ class AllActivity : AppCompatActivity() {
 
         // Create an array of words
         val words = ArrayList<Word>()
-        words.add(Word("not yet implemented","sorry!", R.mipmap.ic_launcher))
+        words.add(Word("not yet implemented","sorry!", -1, R.mipmap.ic_launcher))
 
         val itemsAdapter = WordAdapter(this, words, R.color.category_all)
 
