@@ -4,11 +4,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import android.app.Activity
-import android.content.Intent
+import android.content.Context
 import android.media.MediaPlayer
 import android.widget.AdapterView
-import android.widget.AdapterView.OnItemClickListener
+import android.media.AudioManager
 
 
 class NumbersActivity : AppCompatActivity() {
@@ -18,11 +17,28 @@ class NumbersActivity : AppCompatActivity() {
         // Now that the sound file has finished playing, release the media player resources.
         releaseMediaPlayer()
     }
+    private var audioManager: AudioManager? = null
+    private val mAudioFocusChangeListener: AudioManager.OnAudioFocusChangeListener = AudioManager.OnAudioFocusChangeListener {
+        when(it){
+            AudioManager.AUDIOFOCUS_GAIN -> mediaPlayer?.start()
+            AudioManager.AUDIOFOCUS_LOSS -> {
+                mediaPlayer?.stop()
+                releaseMediaPlayer()
+            }
+            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT,
+            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK -> {
+                mediaPlayer?.pause()
+                mediaPlayer?.seekTo(0)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.word_list)
+
+        audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager?
 
         // Create an array of words
         val words = ArrayList<Word>()
@@ -44,15 +60,18 @@ class NumbersActivity : AppCompatActivity() {
         listView.setAdapter(itemsAdapter)
         listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->
             releaseMediaPlayer()
-            mediaPlayer = MediaPlayer.create(this, words[position].audioRessourdeId)
-            mediaPlayer?.start()
-            mediaPlayer?.setOnCompletionListener(mCompletionListener)
+            if (AudioManager.AUDIOFOCUS_REQUEST_GRANTED == audioManager?.requestAudioFocus(mAudioFocusChangeListener,AudioManager.STREAM_MUSIC,AudioManager.AUDIOFOCUS_GAIN_TRANSIENT)) {
+                mediaPlayer = MediaPlayer.create(this, words[position].audioRessourdeId)
+                mediaPlayer?.start()
+                mediaPlayer?.setOnCompletionListener(mCompletionListener)
+            }
         }
     }
 
     override fun onStop() {
         super.onStop()
         releaseMediaPlayer()
+        audioManager = null
     }
 
     /**
@@ -61,5 +80,6 @@ class NumbersActivity : AppCompatActivity() {
     private fun releaseMediaPlayer() {
         mediaPlayer?.release()  // kotlin safe-call operator
         mediaPlayer = null
+        audioManager?.abandonAudioFocus(mAudioFocusChangeListener)
     }
 }
