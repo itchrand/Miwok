@@ -17,19 +17,24 @@
             </intent-filter>
         </activity>
         <activity android:name=".PhrasesActivity"
-                  android:label="@string/category_phrases">
+                  android:label="@string/category_phrases"
+                  android:parentActivityName="it.chrand.miwok.MainActivity" >
         </activity>
         <activity android:name=".NumbersActivity"
-                  android:label="@string/category_numbers">
+                  android:label="@string/category_numbers"
+                  android:parentActivityName="it.chrand.miwok.MainActivity" >
         </activity>
         <activity android:name=".FamilyActivity"
-                  android:label="@string/category_family">
+                  android:label="@string/category_family"
+                  android:parentActivityName="it.chrand.miwok.MainActivity" >
         </activity>
         <activity android:name=".ColorsActivity"
-                  android:label="@string/category_colors">
+                  android:label="@string/category_colors"
+                  android:parentActivityName="it.chrand.miwok.MainActivity" >
         </activity>
         <activity android:name=".AllActivity"
-                  android:label="@string/category_all">
+                  android:label="@string/category_all"
+                  android:parentActivityName="it.chrand.miwok.MainActivity" >
         </activity>
     </application>
 
